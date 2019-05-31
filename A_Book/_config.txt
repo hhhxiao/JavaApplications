@@ -1,0 +1,1 @@
+dbName:qaq:userName:root:password:123456

@@ -1,0 +1,17 @@
+.button{
+
+    -fx-font-size: 20px;
+    -fx-padding: 5px;
+    -fx-font: bold;
+}
+.label{
+    -fx-padding: 5px;
+    -fx-font-size: 20px;
+}
+.root{
+    -fx-background-color: white;
+}
+.tab-pane{
+    -fx-padding: 5px;
+    -fx-font-size: 20px;
+}

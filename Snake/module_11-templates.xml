@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_11-templates" default="compile.module.11-templates">
+  <dirname property="module.11-templates.basedir" file="${ant.file.module_11-templates}"/>
+  
+  <property name="module.jdk.home.11-templates" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.11-templates" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.11-templates" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.11-templates" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="11-templates.output.dir" value="${module.11-templates.basedir}/out/production/11-Templates"/>
+  <property name="11-templates.testoutput.dir" value="${module.11-templates.basedir}/out/test/11-Templates"/>
+  
+  <path id="11-templates.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="11-templates.module.production.classpath">
+    <path refid="${module.jdk.classpath.11-templates}"/>
+  </path>
+  
+  <path id="11-templates.runtime.production.module.classpath">
+    <pathelement location="${11-templates.output.dir}"/>
+  </path>
+  
+  <path id="11-templates.module.classpath">
+    <path refid="${module.jdk.classpath.11-templates}"/>
+    <pathelement location="${11-templates.output.dir}"/>
+  </path>
+  
+  <path id="11-templates.runtime.module.classpath">
+    <pathelement location="${11-templates.testoutput.dir}"/>
+    <pathelement location="${11-templates.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.11-templates">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.11-templates">
+    <patternset refid="excluded.from.module.11-templates"/>
+  </patternset>
+  
+  <path id="11-templates.module.sourcepath">
+    <dirset dir="${module.11-templates.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.11-templates" depends="compile.module.11-templates.production,compile.module.11-templates.tests" description="Compile module 11-Templates"/>
+  
+  <target name="compile.module.11-templates.production" depends="register.custom.compilers" description="Compile module 11-Templates; production classes">
+    <mkdir dir="${11-templates.output.dir}"/>
+    <javac2 destdir="${11-templates.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.11-templates}/javac">
+      <compilerarg line="${compiler.args.11-templates}"/>
+      <bootclasspath refid="11-templates.module.bootclasspath"/>
+      <classpath refid="11-templates.module.production.classpath"/>
+      <src refid="11-templates.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.11-templates"/>
+    </javac2>
+    
+    <copy todir="${11-templates.output.dir}">
+      <fileset dir="${module.11-templates.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.11-templates.tests" depends="register.custom.compilers,compile.module.11-templates.production" description="compile module 11-Templates; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.11-templates" description="cleanup module">
+    <delete dir="${11-templates.output.dir}"/>
+    <delete dir="${11-templates.testoutput.dir}"/>
+  </target>
+</project>

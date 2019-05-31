@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="11-Templates">
+    <output-path>$PROJECT_DIR$/out/artifacts/11_Templates</output-path>
+    <root id="root">
+      <element id="archive" name="11_Templates.jar">
+        <element id="module-output" name="11-Templates" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+    <com.example.agno3.digitalrecognition.DrawView
+            android:id="@+id/can"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"/>
+        <Button
+                android:text="清空"
+                android:id="@+id/clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="HardcodedText"/>
+        <Button
+                android:text="识别"
+                android:id="@+id/rec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/text_view"
+                android:layout_width="400dp"
+                android:layout_height="200dp"
+                android:textSize="50sp"/>
+</LinearLayout>

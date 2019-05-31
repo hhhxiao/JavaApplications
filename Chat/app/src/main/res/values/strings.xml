@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Chat</string>
+    <string name="send">发送</string>
+    <string name="hint"> </string>
+    <string name="about">关于</string>
+    <string name="settings">设置</string>
+    <string name="apikey">图灵apikey</string>
+</resources>
